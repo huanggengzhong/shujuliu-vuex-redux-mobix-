@@ -19,6 +19,15 @@ constructor(rootStore){
 @action.bound setAll(products){
     this.all=products//将all赋值
 }
+//增加一个减少库存的方法
+@action.bound decrementInventory(product){
+    //在all里找到当前的商品
+    const prod=this.all.find((item=>{
+       return item.id==product.id
+    }))
+    prod.inventory--
+
+}
 
 }
 export default ProductsStore;
